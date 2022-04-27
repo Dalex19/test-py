@@ -6,24 +6,36 @@
 {% endblock title%}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col col-md-6">
-                <h1>Imagen oficinal o flat design</h1>
-            </div>
-            <div class="col col-md-6">
-                <form action="" method="post">
-                    <div class="form-row">
-                        {{form.username}}
-                    </div>
-                    <div class="form-row">
-                        {{form.password}}
-                    </div>
-                </form>
-            </div>
+<div class="container">
+    <div class="conteiner_img">
+        <img src="{% static 'imgs/pro.svg' %}"/>
+    </div>
+    <div class="container_info">
+        <h1>Discover your <br/> Dream Job Here</h1>
+        <p>Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, laboriosam.</p>
+        <div class="btns">
+            <button class="btn js-btn">Register</button>
+            <button class="btn js-btn">Sign In</button>
         </div>
     </div>
+</div>
+<div class="container__register">
+    <header>
+        <h1 class="container__register-title">Complet you Register</h1>
+        <div class="container__register-btn-closed"><img src="{% static 'imgs/close.svg' %}" id="btn-closed"></div>
+    </header>
+    <form class="container__register-form" id="dataForm">
+        <div class="container__register-inputs">
+            {{form.firstname}}
+            {{form.lastname}}
+            {{form.username}}
+            {{form.email}}
+            {{form.password}}
+        </div>
+        <input type="submit" value="Register" class="container__register-btn-submit">
+    </form>
+</div>
 {% endblock content %}
 
-{% block script %}
-{% endblock script %}
+{% block scripts% %}
+{% endblock scripts% %}

@@ -3,7 +3,7 @@
     <head>
         <title>{% block title%}{% endblock title %}</title>
         {% comment %} Load css file {% endcomment %}
-        <link rel="stylesheet" href="{% static 'css/filemame.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     </head>
     <body>
         <main class="container-fluid">
@@ -12,6 +12,7 @@
             {%endblock content%}
         </main>
         {% block scripts%}
+            <script src='{% static "js/index.js" %}'></script>
         {% endblock scripts%}
     </body>
 </html>
