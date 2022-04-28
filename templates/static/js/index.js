@@ -1,3 +1,5 @@
+import Network from "./network.js";
+
 const [register, signIn] = document.querySelectorAll('.js-btn');
 const home = document.querySelector('.container');
 const registerContainer = document.querySelector('.container__register');
@@ -18,29 +20,18 @@ btnClosed.addEventListener('click', () => {
 dataForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(dataForm);
-    sendData(data);
+    let dataFinal = {
+        'first-name': data.get('firstname'),
+        'last-name': data.get('lastname'),
+        'user-name': data.get('username'),
+        'email' : data.get('email'),
+        'password' : data.get('password')
+    }    
+    let requestPost = new Network();
+    requestPost.createreg(dataFinal)
+    .then(res => {
+        console.log("Register created");
+    })
+    dataForm.reset();
 })
-const sendData = (data) => {
-    console.log(data)
-}
-/*const sendData = (dataForm, serversrc) => {
 
-    fetch(`${serversrc}`, {
-        method: 'POST',
-        body: dataForm
-     })
-     .then(function(response) {
-        if(response.ok) {
-            return response.text()
-        } else {
-            throw "Error en la llamada Ajax";
-        }
-     
-     })
-     .then(function(texto) {
-        console.log(texto);
-     })
-     .catch(function(err) {
-        console.log(err);
-     });
-}*/
